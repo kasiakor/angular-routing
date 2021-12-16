@@ -30,7 +30,7 @@ import { SharedModule } from '../shared/shared.module';
           path: 'info', component: ProductEditInfoComponent
         },
         { 
-          path: 'tag', component: ProductEditTagsComponent
+          path: 'tags', component: ProductEditTagsComponent
         }
         
       ] }
