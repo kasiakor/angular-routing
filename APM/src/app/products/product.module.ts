@@ -24,7 +24,7 @@ import { SharedModule } from '../shared/shared.module';
        resolve: { resolvedData: ProductResolver },
        children: [
         {
-          path: '', redirectTo: 'info'
+          path: '', redirectTo: 'info', pathMatch:'full'
         },
         { 
           path: 'info', component: ProductEditInfoComponent
