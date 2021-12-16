@@ -4,6 +4,9 @@ import { ProductResolver } from './product-resolver.service';
 import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductEditInfoComponent } from './product-edit/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit/product-edit-tags.component';
+
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -18,13 +21,27 @@ import { SharedModule } from '../shared/shared.module';
        resolve: { resolvedData: ProductResolver } },
       { path: 'products/:id/edit',
        component: ProductEditComponent,
-       resolve: { resolvedData: ProductResolver } }
+       resolve: { resolvedData: ProductResolver },
+       children: [
+        {
+          path: '', redirectTo: 'info'
+        },
+        { 
+          path: 'info', component: ProductEditInfoComponent
+        },
+        { 
+          path: 'tag', component: ProductEditTagsComponent
+        }
+        
+      ] }
     ])
   ],
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent
   ]
 })
 export class ProductModule { }
