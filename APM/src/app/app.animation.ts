@@ -6,6 +6,7 @@ export const slideInAnimation = trigger('slideInAnimation', [
     // Events to apply
     // Defined style and animation function to apply
     // Config object with optional set to true to handle when element not yet added to the DOM
+    // Query function selects the elements to animate
     query(':enter, :leave', style({ position: 'fixed', width: '100%', zIndex: 2 }), { optional: true }),
     // group block executes in parallel
     group([
