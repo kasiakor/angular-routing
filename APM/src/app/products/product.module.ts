@@ -16,15 +16,18 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     RouterModule.forChild([
       { path: 'products',
-        component: ProductListComponent,
         children: [
+          {
+            path: '',
+            component: ProductListComponent,
+          },
           { path: ':id',
-        component: ProductDetailComponent,
-        resolve: { resolvedData: ProductResolver } },
+            component: ProductDetailComponent,
+            resolve: { resolvedData: ProductResolver } },
         { path: ':id/edit',
           component: ProductEditComponent,
-        resolve: { resolvedData: ProductResolver },
-        children: [
+          resolve: { resolvedData: ProductResolver },
+          children: [
           {
             path: '', redirectTo: 'info', pathMatch:'full'
           },
