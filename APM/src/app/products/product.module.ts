@@ -16,7 +16,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     RouterModule.forChild([
       { path: 'products',
-        canActivate: [AuthGuard],
+        //canActivate: [AuthGuard],
         children: [
           {
             path: '',
