@@ -14,7 +14,20 @@ export class ProductEditComponent implements OnInit {
   pageTitle = 'Product Edit';
   errorMessage: string;
 
-  product: Product;
+  //product: Product; - use getter and setter
+  private currentProduct: Product;
+  private originalProduct: Product;
+
+
+  get product():Product {
+    return this.currentProduct;
+  }
+
+  //product that user edits
+  set product(value: Product) {
+    this.currentProduct = value;
+    this.originalProduct = { ...value};
+  }
 
   constructor(private productService: ProductService,
               private messageService: MessageService,
