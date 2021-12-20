@@ -18,6 +18,10 @@ export class ProductEditComponent implements OnInit {
   private currentProduct: Product;
   private originalProduct: Product;
 
+  //add property that returns boolean, checks if product was changed
+  get isDirty(): boolean {
+    return JSON.stringify(this.originalProduct) !== JSON.stringify(this.currentProduct);
+  }
 
   get product():Product {
     return this.currentProduct;
