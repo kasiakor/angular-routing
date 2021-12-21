@@ -15,9 +15,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: 'products',
-        //canActivate: [AuthGuard],
-        children: [
+      // { path: 'products',
+      //   //canActivate: [AuthGuard],
+      //   children: [
           {
             path: '',
             component: ProductListComponent,
@@ -41,7 +41,7 @@ import { SharedModule } from '../shared/shared.module';
             }
           ]   
         }, 
-      ]}
+      // ]}
     ])
   ],
   declarations: [
