@@ -8,7 +8,7 @@ const ROUTES = [
     { path: 'welcome', component: WelcomeComponent },
     { path: 'products',
     //add guards here for products module
-      //canActivate: [AuthGuard],
+      canLoad: [AuthGuard],
     //when user clicks the products menu router will fetch the bundle containing this module
     loadChildren: () =>
     import('./products/product.module')
