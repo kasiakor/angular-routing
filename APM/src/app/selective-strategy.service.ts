@@ -15,6 +15,7 @@ export class SelectiveStrategy implements PreloadingStrategy {
 
         //if data property is set on the route and the value is true we preload the module
         if (route.data && route.data['preload']) {
+            console.log('product route data', route.data);
             return load()
         }
         return of(null);
