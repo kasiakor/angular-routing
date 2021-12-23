@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthGuard } from './user/auth.guard';
+import { SelectiveStrategy } from './selective-strategy.service';
  
 const ROUTES = [
     { path: 'welcome', component: WelcomeComponent },
@@ -11,6 +12,7 @@ const ROUTES = [
     //use canActivate to allow preloading modules for lazy loading
     //canLoad guard blocks preloading
       canActivate: [AuthGuard],
+      data: {preload : true},
     //when user clicks the products menu router will fetch the bundle containing this module
     loadChildren: () =>
     import('./products/product.module')
@@ -23,7 +25,8 @@ const ROUTES = [
 @NgModule({
     imports: [
         RouterModule.forRoot(ROUTES, {
-            preloadingStrategy: PreloadAllModules
+            //preloadingStrategy: PreloadAllModules
+            preloadingStrategy: SelectiveStrategy
         }) 
             //,{ enableTracing: true })
     ],
